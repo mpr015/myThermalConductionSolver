@@ -54,8 +54,8 @@ int main(int argc, char *argv[])
     */
 
     solve(fvm::laplacian(k, T) + su + fvm::Sp(sp, T));
-    runTime++;
-    runTime.write();
+    runTime++; //increases the time by the value of deltaT specified in controlDict, so that we do not overwrite the T file in the startTime directory
+    runTime.write(); //tells the code to write out all the fields that are specified with IOobject::AUTO_WRITE
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
     Info<< nl;
